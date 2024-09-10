@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Random User API Web Interface Implementation</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script src="/script.js"></script>
+		<style>
+			#userData {
+				display: grid;
+				grid-template-columns: repeat(6, 1fr);
+				gap: 10px;
+				margin-top: 20px;
+			}
+			.user-card {
+				border: 1px solid #ddd;
+				padding: 10px;
+				margin: 10px 0;
+				border-radius: 5px;
+			}
+			.loading {
+				display: none;
+				font-size: 16px;
+				color: #666;
+			}
+			@media (max-width: 1500px) {
+				#userData {
+				grid-template-columns: repeat(5, 1fr);
+			}
+			@media (max-width: 1300px) {
+				#userData {
+				grid-template-columns: repeat(4, 1fr);
+			}
+			@media (max-width: 900px) {
+				#userData {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			@media (max-width: 700px) {
+				#userData {
+				grid-template-columns: repeat(1, 1fr);
+			}
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Random User Generator</h1>
+				<p>
+					Check which data you want generated for your users, name is required.
+				</p>
+			</div>
+		</div>
+		
+		<form id="dataSelectionForm">
+			<label>
+				Number of Results:
+				<input
+					type="number"
+					id="numResults"
+					value="10"
+					min="1"
+				/>
+			</label>
+			<label
+				><input
+					type="checkbox"
+					name="nat"
+					value="true"
+					checked
+				/>
+				nat</label
+			>
+			<label
+				><input
+					type="checkbox"
+					name="gender"
+					value="true"
+					checked
+				/>
+				gender</label
+			>
+			<label
+				><input
+					type="checkbox"
+					name="name"
+					value="true"
+					checked
+					required
+				/>
+				name</label
+			>
+			<label
+				><input
+					type="checkbox"
+					name="location"
+					value="true"
+					checked
+				/>
+				location</label
+			>
+			<label
+				><input
+					type="checkbox"
+					name="email"
+					value="true"
+					checked
+				/>
+				email</label
+			>
+			<label
+				><input
+					type="checkbox"
+					name="login"
+					value="true"
+					checked
+				/>
+				login</label
+			>
+			<label
+				><input
+					type="checkbox"
+					name="registered"
+					value="true"
+					checked
+				/>
+				registered</label
+			>
+			<label
+				><input
+					type="checkbox"
+					name="dob"
+					value="true"
+					checked
+				/>
+				dob</label
+			>
+			<label
+				><input
+					type="checkbox"
+					name="phone"
+					value="true"
+					checked
+				/>
+				phone</label
+			>
+			<label
+				><input
+					type="checkbox"
+					name="cell"
+					value="true"
+					checked
+				/>
+				cell</label
+			>
+			<label
+				><input
+					type="checkbox"
+					name="id"
+					value="true"
+					checked
+				/>
+				id</label
+			>
+			<label
+				><input
+					type="checkbox"
+					name="picture"
+					value="true"
+					checked
+				/>
+				picture</label
+			>
+			<button type="submit">Fetch Data</button>
+		</form>
+		<p class="loading">Loading...</p>
+		<div class="usercardcontainer">
+			<div id="userData"></div>
+		</div>
+	</body>
+</html>
